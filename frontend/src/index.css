@@ -1,0 +1,677 @@
+
+@import "tailwindcss";
+
+/* ========================================
+   GLOBAL SETTINGS
+======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: #080b14;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: #7c3aed;
+  color: white;
+}
+
+/* ========================================
+   UNIVERSAL SECTION ALIGNMENT
+======================================== */
+
+#root > main > section[id],
+#root > section[id] {
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: clamp(24px, 4vw, 64px) !important;
+  padding-right: clamp(24px, 4vw, 64px) !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Keep section content centered */
+
+#root > main > section[id] > div:not(.absolute),
+#root > section[id] > div:not(.absolute) {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* Prevent decorative backgrounds from affecting layout */
+
+#root section[id] .absolute {
+  pointer-events: none;
+}
+
+/* ========================================
+   HERO ANIMATIONS
+======================================== */
+
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes heroFloatDelayed {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+@keyframes heroGlow {
+  0%, 100% {
+    opacity: .25;
+  }
+  50% {
+    opacity: .65;
+  }
+}
+
+.hero-section {
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(16,185,129,.08), transparent 40%),
+    radial-gradient(ellipse at 90% 80%, rgba(6,182,212,.08), transparent 40%),
+    #080b14;
+}
+
+.hero-orb {
+  animation: heroGlow 6s ease-in-out infinite;
+}
+
+.hero-float {
+  animation: heroFloat 5s ease-in-out infinite;
+}
+
+.hero-float-delayed {
+  animation: heroFloatDelayed 6s ease-in-out infinite;
+}
+
+.hero-map-panel {
+  background: linear-gradient(145deg, #101e2a, #0a111c);
+  border-color: rgba(52,211,153,.2);
+}
+
+.hero-map-grid {
+  background-image:
+    linear-gradient(rgba(52,211,153,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52,211,153,.07) 1px, transparent 1px);
+  background-size: 35px 35px;
+}
+
+.hero-floating-card {
+  background: rgba(8,18,29,.85);
+  border-color: rgba(52,211,153,.2);
+  box-shadow: 0 10px 35px rgba(0,0,0,.2);
+}
+
+.hero-skill {
+  color: #a7f3d0;
+  background: rgba(16,185,129,.08);
+  border: 1px solid rgba(52,211,153,.2);
+}
+
+.hero-button {
+  color: #d1d5db;
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.15);
+}
+
+.hero-highlight {
+  background: rgba(255,255,255,.035);
+  border-color: rgba(255,255,255,.1);
+}
+
+.hero-heading {
+  color: #ffffff;
+}
+
+.hero-description {
+  color: #9ca3af;
+}
+
+/* ========================================
+   ABOUT SECTION
+======================================== */
+
+@keyframes aboutEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aboutGlow {
+  0%, 100% {
+    opacity: .3;
+  }
+  50% {
+    opacity: .7;
+  }
+}
+
+.about-section {
+  background: #080b14;
+}
+
+.about-enter {
+  animation: aboutEnter .8s ease both;
+}
+
+.about-glow {
+  animation: aboutGlow 6s ease-in-out infinite;
+}
+
+.about-card {
+  background: linear-gradient(145deg, #111e2a, #0b1420);
+  border-color: rgba(52,211,153,.2);
+  transition: transform .4s ease, border-color .4s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(52,211,153,.5);
+}
+
+.about-strength {
+  background: rgba(255,255,255,.035);
+  border-color: rgba(255,255,255,.1);
+}
+
+.about-strength:hover {
+  border-color: rgba(52,211,153,.4);
+  box-shadow: 0 12px 35px rgba(16,185,129,.08);
+}
+
+.about-heading {
+  color: #ffffff;
+}
+
+.about-text {
+  color: #cbd5e1;
+}
+
+.about-muted {
+  color: #94a3b8;
+}
+
+.about-tag {
+  background: rgba(16,185,129,.08);
+  color: #a7f3d0;
+  border: 1px solid rgba(52,211,153,.2);
+}
+
+/* ========================================
+   EXPERIENCE ALIGNMENT
+======================================== */
+
+#experience > div.relative.z-10 {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========================================
+   GIS MAP
+======================================== */
+
+.gis-map-wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #101827;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.gis-leaflet-map {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  background: #101827;
+  z-index: 1;
+}
+
+.gis-leaflet-map .leaflet-control-zoom a {
+  background: #111827;
+  color: #34d399;
+  border-color: rgba(52,211,153,.25);
+}
+
+.gis-leaflet-map .leaflet-control-zoom a:hover {
+  background: #064e3b;
+  color: white;
+}
+
+.gis-leaflet-map .leaflet-control-layers {
+  background: rgba(11,20,32,.95);
+  color: #e2e8f0;
+  border: 1px solid rgba(52,211,153,.3);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.gis-leaflet-map .leaflet-control-layers label {
+  color: #e2e8f0;
+  font-size: 12px;
+}
+
+.gis-leaflet-map .leaflet-control-attribution {
+  background: rgba(8,11,20,.8);
+  color: #cbd5e1;
+  font-size: 9px;
+}
+
+.gis-leaflet-map .leaflet-control-attribution a {
+  color: #34d399;
+}
+
+.gis-leaflet-map .leaflet-popup-content-wrapper,
+.gis-leaflet-map .leaflet-popup-tip {
+  background: #111827;
+  color: white;
+}
+
+.gis-leaflet-map .leaflet-popup-content {
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.gis-info-card {
+  background: rgba(255,255,255,.035);
+  transition: border-color .3s ease, transform .3s ease;
+}
+
+.gis-info-card:hover {
+  border-color: rgba(52,211,153,.4);
+  transform: translateY(-3px);
+}
+
+/* ========================================
+   LIGHT MODE
+======================================== */
+
+html.light body {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+html.light .hero-section {
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(16,185,129,.10), transparent 40%),
+    radial-gradient(ellipse at 90% 80%, rgba(6,182,212,.10), transparent 40%),
+    #f1f5f9;
+}
+
+html.light .hero-heading {
+  color: #0f172a;
+}
+
+html.light .hero-description {
+  color: #475569;
+}
+
+html.light .hero-map-panel {
+  background: linear-gradient(145deg, #ffffff, #e2e8f0);
+  border-color: rgba(5,150,105,.25);
+}
+
+html.light .hero-floating-card {
+  background: rgba(255,255,255,.92);
+  border-color: rgba(5,150,105,.25);
+  box-shadow: 0 10px 35px rgba(15,23,42,.10);
+}
+
+html.light .hero-skill {
+  color: #047857;
+  background: rgba(16,185,129,.09);
+  border-color: rgba(5,150,105,.25);
+}
+
+html.light .hero-button {
+  color: #0f172a;
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+html.light .hero-highlight {
+  background: rgba(255,255,255,.85);
+  border-color: #cbd5e1;
+}
+
+html.light .about-section {
+  background: #f1f5f9;
+}
+
+html.light .about-card {
+  background: linear-gradient(145deg, #ffffff, #e2e8f0);
+  border-color: #cbd5e1;
+}
+
+html.light .about-strength {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+html.light .about-heading {
+  color: #0f172a;
+}
+
+html.light .about-text {
+  color: #334155;
+}
+
+html.light .about-muted {
+  color: #475569;
+}
+
+html.light .about-tag {
+  background: #d1fae5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+
+html.light .gis-map-wrapper {
+  border-color: #cbd5e1;
+}
+
+html.light .gis-info-card {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+html.light .gis-info-card h3 {
+  color: #0f172a;
+}
+
+html.light .gis-info-card p {
+  color: #475569;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 1024px) {
+  #root > main > section[id],
+  #root > section[id] {
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #root > main > section[id],
+  #root > section[id] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .gis-leaflet-map {
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  #root > main > section[id],
+  #root > section[id] {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .gis-leaflet-map {
+    min-height: 300px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-float,
+  .hero-float-delayed,
+  .hero-orb,
+  .about-enter,
+  .about-glow {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* =========================================
+   GLOBAL LIGHT MODE - ALL SECTIONS
+========================================= */
+
+html.light body {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* All main sections */
+
+html.light section {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* Section backgrounds */
+
+html.light #experience,
+html.light #skills,
+html.light #projects,
+html.light #gis-maps,
+html.light #education,
+html.light #research,
+html.light #contact {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* Dark cards become white */
+
+html.light section [class*="bg-[#111827]"],
+html.light section [class*="bg-[#101827]"],
+html.light section [class*="bg-[#0b1420]"],
+html.light section [class*="bg-[#080b14]"] {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Semi-transparent cards */
+
+html.light section [class*="bg-white/"] {
+  background-color: #f8fafc !important;
+}
+
+/* Headings and white text */
+
+html.light section .text-white:not(button):not(button *) {
+  color: #0f172a !important;
+}
+
+html.light section .text-slate-100,
+html.light section .text-slate-200,
+html.light section .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light section .text-slate-400,
+html.light section .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Borders */
+
+html.light section [class*="border-white/"] {
+  border-color: #cbd5e1 !important;
+}
+
+/* Input fields */
+
+html.light section input,
+html.light section textarea {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light section input::placeholder,
+html.light section textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Navbar */
+
+html.light nav {
+  background: rgba(255,255,255,0.95) !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light nav a {
+  color: #334155;
+}
+
+html.light nav a:hover {
+  color: #059669;
+}
+
+html.light nav button {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+/* Contact cards */
+
+html.light .contact-card {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light .contact-card p {
+  color: #334155;
+}
+
+/* GIS map information cards */
+
+html.light .gis-info-card {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Map controls */
+
+html.light .gis-leaflet-map .leaflet-control-layers {
+  background: rgba(255,255,255,.97);
+  color: #0f172a;
+}
+
+html.light .gis-leaflet-map .leaflet-control-layers label {
+  color: #0f172a;
+}
+
+html.light .gis-leaflet-map .leaflet-control-zoom a {
+  background: #ffffff;
+  color: #059669;
+}
+
+/* Keep gradient text visible */
+
+html.light .bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Smooth theme transition */
+
+body,
+section,
+nav,
+section div,
+section input,
+section textarea {
+  transition:
+    background-color .3s ease,
+    border-color .3s ease,
+    color .3s ease;
+}
+/* GLOBAL SECTION ALIGNMENT FIX */
+
+/* Correct navigation scroll position */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
+/* Keep all sections below fixed navbar */
+section[id] {
+  scroll-margin-top: 76px !important;
+}
+
+/* Remove unnecessary vertical centering */
+section[id]:not(#home).flex.items-center {
+  align-items: flex-start !important;
+}
+
+/* Prevent section content from overlapping navbar */
+section[id] {
+  position: relative;
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 76px;
+  }
+
+  section[id] {
+    scroll-margin-top: 76px !important;
+  }
+}
