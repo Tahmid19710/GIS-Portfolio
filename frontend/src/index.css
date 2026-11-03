@@ -675,3 +675,65 @@ section[id] {
     scroll-margin-top: 76px !important;
   }
 }
+
+/* SKILLS SECTION - LIGHT MODE CONTRAST FIX */
+
+html.light #skills {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+html.light #skills .skills-card {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+}
+
+html.light #skills .text-white {
+  color: #0f172a !important;
+}
+
+html.light #skills .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.light #skills .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Main Skill Tags */
+html.light #skills .skills-card .skill-tag {
+  color: #065f46 !important;
+  background: #d1fae5 !important;
+  border: 1px solid #6ee7b7 !important;
+  font-weight: 600 !important;
+}
+
+html.light #skills .skills-card .skill-tag:hover {
+  color: #064e3b !important;
+  background: #a7f3d0 !important;
+  border-color: #34d399 !important;
+}
+
+/* Additional Skills Card */
+html.light #skills .skills-reveal.mt-5 {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light #skills .skills-reveal.mt-5 h3 {
+  color: #0f172a !important;
+}
+
+html.light #skills .skills-reveal.mt-5 .skill-tag {
+  color: #075985 !important;
+  background: #e0f2fe !important;
+  border-color: #7dd3fc !important;
+  font-weight: 600 !important;
+}
+
+html.light #skills .skills-reveal.mt-5 .skill-tag:hover {
+  color: #0c4a6e !important;
+  background: #bae6fd !important;
+  border-color: #38bdf8 !important;
+}
